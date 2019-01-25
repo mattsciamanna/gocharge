@@ -12,6 +12,7 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import UseageData from '../components/UseageData';
+import Chart from '../components/Chart';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -52,6 +53,7 @@ export default class HomeScreen extends React.Component {
               <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
             </TouchableOpacity>
             <UseageData></UseageData>
+            <Chart></Chart>
           </View>
         </ScrollView>
 

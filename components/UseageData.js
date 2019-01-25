@@ -15,7 +15,7 @@ export default class UseageData extends React.Component {
   
   render() {
     return (
-      <Table></Table>
+      <Text>Hi Alex!</Text>
     );
   }
 }
