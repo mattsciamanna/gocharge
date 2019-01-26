@@ -53,7 +53,9 @@ export default class HomeScreen extends React.Component {
               <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
             </TouchableOpacity>
             <UseageData></UseageData>
-            <Chart></Chart>
+            <Chart 
+              hello = "goodbye"
+            ></Chart>
           </View>
         </ScrollView>
 
