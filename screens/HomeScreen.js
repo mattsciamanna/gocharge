@@ -54,7 +54,8 @@ export default class HomeScreen extends React.Component {
             </TouchableOpacity>
             <UseageData></UseageData>
             <Chart 
-              hello = "goodbye"
+              style={{backgroundColor: "gray"}}
+              margin={{left: 30, right: 30, top: 30, bottom: 30}}
             ></Chart>
           </View>
         </ScrollView>
