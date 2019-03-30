@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Image,
   Platform,
@@ -14,29 +14,47 @@ import { MonoText } from '../components/StyledText';
 import UseageData from '../components/UseageData';
 import Chart from '../components/Chart';
 
+const remote = 'https://images.pexels.com/photos/941415/pexels-photo-941415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
-
+ 
   render() {
     return (
+      
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-
+          
           <View style={styles.getStartedContainer}>
+          <Image
+            style={{
+              flex: 1,
+              height: 940,
+              width: 650,
+              resizeMode: 'center'
+            }}
+            source={{ uri: remote }}
+          />
             {this._maybeRenderDevelopmentModeWarning()}
 
+            {/* VIEWS ARE ABSOLUTE UNFORTUNATELY */}
+          <View style={{position: 'absolute', top: -400, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center',textAlignVertical: "center"}}>
+            <Text style={{fontSize:60, color: 'white'}}>Your Home{"\n"}Your Energy{"\n"}{"\n"}My RECP</Text>
+          </View>
+
+
+             {/* <Form><Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group> 
+          </Form> */}
+
+       
             <Text style={styles.getStartedText}>Get started by opening</Text>
 
             <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
@@ -60,13 +78,7 @@ export default class HomeScreen extends React.Component {
           </View>
         </ScrollView>
 
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
+       
       </View>
     );
   }

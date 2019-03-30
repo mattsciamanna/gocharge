@@ -4,6 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
+import ChartsScreen from '../screens/ChartsScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -21,6 +22,20 @@ HomeStack.navigationOptions = {
           ? `ios-information-circle${focused ? '' : '-outline'}`
           : 'md-information-circle'
       }
+    />
+  ),
+};
+// to do -- gotta get rid of the ioslink
+const ChartsStack = createStackNavigator({
+  Charts: ChartsScreen,
+});
+
+ChartsStack.navigationOptions = {
+  tabBarLabel: 'Charts',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-finance-money-bag' : 'md-finance-money-bag'}
     />
   ),
 };
@@ -55,6 +70,7 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
+  ChartsStack,
   LinksStack,
   SettingsStack,
 });
